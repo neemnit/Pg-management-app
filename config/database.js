@@ -38,7 +38,7 @@
 const mongoose=require('mongoose')
 
 const configureDB=()=>{
-    mongoose.connect('mongodb://localhost:27017/pgapp',{family:4})
+    mongoose.connect('mongodb+srv://nitu:nitu@cluster0.xrowujb.mongodb.net/pgapp?retryWrites=true&w=majority',{family:4})
     .then(()=>{
         console.log('connecting to db')
     })
