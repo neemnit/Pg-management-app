@@ -11,6 +11,9 @@ user.save()
     res.json(err)
 })
 }
+userCltr.get=(req,res)=>{
+    res.json({"nitish":"3"})
+}
 userCltr.show=(req,res)=>{
     
     User.find()
