@@ -11,6 +11,13 @@ configureDB();
 
 app.use(express.json());
 app.use(cors());
+app.use(
+    cors({
+      origin: 'http://localhost:5173', // Allow requests from this origin
+      methods: 'GET,POST,PUT,DELETE',  // Allow specific HTTP methods
+      credentials: true,               // Allow cookies and credentials
+    })
+  );
 app.use(router);
 
 app.listen(port, () => {
