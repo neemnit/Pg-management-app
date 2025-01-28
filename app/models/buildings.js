@@ -5,7 +5,13 @@ const buildingSchema=new Schema({
     userId:{
         type:Schema.Types.ObjectId,
         ref:'User',
-        required:true
+        required:false
+    },
+    ownerName:{
+        type:String,
+        required:[true,"please give owner name"],
+        trim:true,
+        uniqueCaseInsensitive:true
     },
     name:{
         type:String,

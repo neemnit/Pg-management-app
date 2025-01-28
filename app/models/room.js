@@ -2,13 +2,24 @@ const mongoose=require('mongoose')
 const uniqueValidator=require('mongoose-unique-validator')
 const Schema=mongoose.Schema
 const roomSchema=new Schema({
-    name:{
+    roomName:{
         type:String,
         required:[true,"name is required"],
         unique:true,
         uniqueCaseInsensitive: true
 
     },
+    roomType:{
+        type:String,
+        required:[true,"Please select Room type"],
+        default:'non-ac'
+        
+    },
+    numberSharedRoom:{
+       type:String,
+       required:[true,"Please selecte room"]
+    },
+
     buildingId:{
         type:Schema.Types.ObjectId,
         ref:'Building',
@@ -17,7 +28,7 @@ const roomSchema=new Schema({
     userId:{
         type:Schema.Types.ObjectId,
         ref:'User',
-        required:true
+        required:false
     }
 })
 roomSchema.plugin(uniqueValidator,{

@@ -9,24 +9,18 @@ const tenantSchema=new Schema({
         trim:true
     },
     
-        aadhar:{
-            type:String,
-            required:[true,"adhar is required"],
-            unique:true,
-            maxlength:16
-        },
-        email:{
-            type:String,
-            required:[true,"email is requrired"]
-        ,
-        validate:{
-            validator:function(value){
-                return isEmail(value)
+    aadhar: {
+        type: String,
+        required: [true, "Aadhar is required"],
+        unique: true,
+        validate: {
+            validator: function (value) {
+                return /^\d{12}$/.test(value); // Regex for exactly 12 digits
             },
-            message:function(){
-                return "invalid email format"
-            }
-        }},
+            message: "Invalid Aadhar number. It should contain exactly 12 digits.",
+        },
+    },
+        
         roomId:{
             type:Schema.Types.ObjectId,
             ref:'Room',

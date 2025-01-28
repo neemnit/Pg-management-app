@@ -2,6 +2,7 @@ const Building=require('../models/buildings')
 const buildingCltr={}
 buildingCltr.create=(req,res)=>{
     const body=req.body
+    
     const building=new Building(body)
     building.save()
     .then((building)=>{
